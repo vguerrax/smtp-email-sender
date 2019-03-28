@@ -12,12 +12,7 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-salt_list = {
-    'SALTKEYTOTEST': {
-        'value': 'SALTTOTEST',
-        'validate': 1556208079.322537
-    }
-}
+salt_list = {}
 dados_conexao = None
 
 def get_salt(key):
@@ -99,7 +94,6 @@ def sendEmail():
     response = enviarEmail(conexao_smtp_valid[1], email)
     return jsonify(response)
     
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5001))
     app.run(host='0.0.0.0', port=port)
